@@ -1,6 +1,6 @@
 [
 	{
-		"module": ":main",
-		"path": "main"
+		"module": ":app",
+		"path": "app"
 	}
 ]

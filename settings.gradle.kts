@@ -14,6 +14,8 @@ buildscript {
 	}
 
 	dependencies {
+		// Not possible to access "libs" here to use versions catalog.
+		@Suppress("UseTomlInstead")
 		classpath("org.json:json:20231013")
 	}
 }

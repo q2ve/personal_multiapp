@@ -1,0 +1,16 @@
+[versions]
+	version_ktx = "1.12.0"
+	version_constraintLayout = "2.1.4"
+	version_lifecycle = "2.7.0"
+	version_AGP = "8.1.4"
+	version_Kotlin = "1.8.0"
+	version_Json = "20231013"
+
+[libraries]
+	ktx = { group = "androidx.core", name = "core-ktx", version.ref = "version_ktx" }
+	constraintLayout = { group = "androidx.constraintlayout", name = "constraintlayout-ktx", version.ref = "version_constraintLayout" }
+	lifecycle = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "version_lifecycle" }
+
+[plugins]
+	application = { id = "com.android.application", version.ref = "version_AGP" }
+	kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "version_Kotlin" }
