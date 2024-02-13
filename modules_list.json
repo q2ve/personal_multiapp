@@ -2,5 +2,9 @@
 	{
 		"module": ":app",
 		"path": "app"
+	},
+	{
+		"module": ":feature-checklist",
+		"path": "feature-checklist"
 	}
 ]

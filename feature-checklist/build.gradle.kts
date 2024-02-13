@@ -1,20 +1,16 @@
 import com.android.sdklib.AndroidVersion
 
 plugins {
-	alias(libs.plugins.application)
+	alias(libs.plugins.library)
 	alias(libs.plugins.kotlin)
 }
 
 android {
-	namespace = "com.q2ve.personal_multiapp"
+	namespace = "com.q2ve.personal_multiapp.feature_checklist"
 	compileSdk = AndroidVersion.VersionCodes.UPSIDE_DOWN_CAKE // Android 14, API level 34
 
 	defaultConfig {
-		applicationId = "com.q2ve.personal_multiapp"
 		minSdk = AndroidVersion.VersionCodes.O_MR1 // Android 8.1, API level 27
-		targetSdk = AndroidVersion.VersionCodes.UPSIDE_DOWN_CAKE // Android 14, API level 34
-		versionCode = 1
-		versionName = "0.0.1"
 	}
 
 	buildTypes {
@@ -23,11 +19,11 @@ android {
 		}
 	}
 	compileOptions {
-		sourceCompatibility = JavaVersion.VERSION_19
-		targetCompatibility = JavaVersion.VERSION_19
+		sourceCompatibility = JavaVersion.VERSION_17
+		targetCompatibility = JavaVersion.VERSION_17
 	}
 	kotlinOptions {
-		jvmTarget = "19"
+		jvmTarget = "17"
 	}
 	buildFeatures {
 		viewBinding = true
@@ -37,5 +33,4 @@ android {
 dependencies {
 	implementation(libs.ktx)
 	implementation(libs.fragment)
-	implementation(project(mapOf("path" to ":feature-checklist")))
 }
