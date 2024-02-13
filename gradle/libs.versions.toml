@@ -1,0 +1,14 @@
+[versions]
+	version_ktx = "1.12.0"
+	version_fragment = "1.6.2"
+	version_AGP = "8.2.2"
+	version_Kotlin = "1.9.22"
+
+[libraries]
+	ktx = { group = "androidx.core", name = "core-ktx", version.ref = "version_ktx" }
+	fragment = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "version_fragment" }
+
+[plugins]
+	application = { id = "com.android.application", version.ref = "version_AGP" }
+	library = { id = "com.android.library", version.ref = "version_AGP" }
+	kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "version_Kotlin" }
