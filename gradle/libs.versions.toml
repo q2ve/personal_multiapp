@@ -3,12 +3,16 @@
 	version_fragment = "1.6.2"
 	version_AGP = "8.2.2"
 	version_Kotlin = "1.9.22"
+	version_dagger2 = "2.50"
 
 [libraries]
 	ktx = { group = "androidx.core", name = "core-ktx", version.ref = "version_ktx" }
 	fragment = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "version_fragment" }
+	dagger2 = { group = "com.google.dagger", name = "dagger", version.ref = "version_dagger2" }
+	dagger2Compiler = { group = "com.google.dagger", name = "dagger-compiler", version.ref = "version_dagger2" }
 
 [plugins]
 	application = { id = "com.android.application", version.ref = "version_AGP" }
 	library = { id = "com.android.library", version.ref = "version_AGP" }
 	kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "version_Kotlin" }
+	kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "version_Kotlin" }
