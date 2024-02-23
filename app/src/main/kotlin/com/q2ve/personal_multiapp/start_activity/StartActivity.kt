@@ -1,4 +1,4 @@
-package com.q2ve.personal_multiapp
+package com.q2ve.personal_multiapp.start_activity
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,7 +11,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
+import com.q2ve.personal_multiapp.application.Multiapp
 import com.q2ve.personal_multiapp.feature_checklist.api.ChecklistStartFragment
+import java.lang.Exception
 
 class StartActivity: FragmentActivity() {
     private val buttonsList = listOf<Pair<String, () -> Unit>>(
@@ -21,6 +23,13 @@ class StartActivity: FragmentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        (application as? Multiapp)?.apply {
+            applicationComponent.getStartActivityComponent().build().injectStartActivity(this@StartActivity)
+        } ?: {
+            throw Exception("Application override class should be 'Multiapp'")
+        }
+
         setContentView(getView(this))
     }
 

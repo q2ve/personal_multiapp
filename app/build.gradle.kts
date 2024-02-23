@@ -3,6 +3,7 @@ import com.android.sdklib.AndroidVersion
 plugins {
 	alias(libs.plugins.application)
 	alias(libs.plugins.kotlin)
+	alias(libs.plugins.kapt)
 }
 
 android {
@@ -23,11 +24,11 @@ android {
 		}
 	}
 	compileOptions {
-		sourceCompatibility = JavaVersion.VERSION_19
-		targetCompatibility = JavaVersion.VERSION_19
+		sourceCompatibility = JavaVersion.VERSION_17
+		targetCompatibility = JavaVersion.VERSION_17
 	}
 	kotlinOptions {
-		jvmTarget = "19"
+		jvmTarget = "17"
 	}
 	buildFeatures {
 		viewBinding = true
@@ -37,5 +38,7 @@ android {
 dependencies {
 	implementation(libs.ktx)
 	implementation(libs.fragment)
-	implementation(project(mapOf("path" to ":feature-checklist")))
+	implementation(libs.dagger2)
+	kapt(libs.dagger2Compiler)
+	implementation(project(":feature-checklist"))
 }
