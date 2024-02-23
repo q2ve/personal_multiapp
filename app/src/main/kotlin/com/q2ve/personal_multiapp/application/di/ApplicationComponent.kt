@@ -1,4 +1,4 @@
-package com.q2ve.personal_multiapp.di
+package com.q2ve.personal_multiapp.application.di
 
 import com.q2ve.personal_multiapp.start_activity.di.StartActivityComponent
 import dagger.Component
