@@ -12,7 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import com.q2ve.personal_multiapp.application.Multiapp
-import com.q2ve.personal_multiapp.feature_checklist.api.ChecklistStartFragment
+import com.q2ve.personal_multiapp.feature_checklist.api.ChecklistEntry
 import java.lang.Exception
 
 class StartActivity: FragmentActivity() {
@@ -68,7 +68,7 @@ class StartActivity: FragmentActivity() {
         supportFragmentManager.beginTransaction().apply {
             add(
                 1234,
-                ChecklistStartFragment()
+                ChecklistEntry.getChecklistStartFragment()
             )
             addToBackStack(null)
             commit()

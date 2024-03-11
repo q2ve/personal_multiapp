@@ -2,8 +2,6 @@ import com.android.sdklib.AndroidVersion
 
 plugins {
 	alias(libs.plugins.library)
-	alias(libs.plugins.kotlin)
-	alias(libs.plugins.kapt)
 }
 
 android {
@@ -25,25 +23,4 @@ android {
 		sourceCompatibility = JavaVersion.VERSION_17
 		targetCompatibility = JavaVersion.VERSION_17
 	}
-
-	kotlinOptions {
-		jvmTarget = "17"
-	}
-
-	buildFeatures {
-		viewBinding = true
-	}
-}
-
-dependencies {
-	implementation(libs.ktx)
-	implementation(libs.fragment)
-	implementation(libs.recyclerview)
-	implementation(libs.dagger2)
-	kapt(libs.dagger2compiler)
-	implementation(libs.viewmodel)
-	implementation(libs.livedata)
-	implementation(libs.adapterdelegates)
-	implementation(libs.kotlinfaker)
-	implementation(project(":ui-kit"))
 }

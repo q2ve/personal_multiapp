@@ -6,5 +6,9 @@
 	{
 		"module": ":feature-checklist",
 		"path": "feature-checklist"
+	},
+	{
+		"module": ":ui-kit",
+		"path": "ui-kit"
 	}
 ]

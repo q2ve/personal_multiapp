@@ -39,6 +39,7 @@ dependencies {
 	implementation(libs.ktx)
 	implementation(libs.fragment)
 	implementation(libs.dagger2)
-	kapt(libs.dagger2Compiler)
+	kapt(libs.dagger2compiler)
 	implementation(project(":feature-checklist"))
+	implementation(project(":ui-kit"))
 }

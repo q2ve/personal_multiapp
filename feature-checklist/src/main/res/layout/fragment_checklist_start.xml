@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/red"
-    android:gravity="center">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#A7B6AA"
+    android:focusable="true"
+    android:clickable="true">
 
-    <TextView
-        android:id="@+id/tessssst"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/feed_recycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:textSize="40sp"
-        android:textColor="#000000"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:overScrollMode="always"/>
 
-</LinearLayout>
+</FrameLayout>
