@@ -13,7 +13,6 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import com.q2ve.personal_multiapp.application.Multiapp
 import com.q2ve.personal_multiapp.feature_checklist.api.ChecklistEntry
-import java.lang.Exception
 
 class StartActivity: FragmentActivity() {
     private val buttonsList = listOf<Pair<String, () -> Unit>>(
@@ -28,7 +27,7 @@ class StartActivity: FragmentActivity() {
             applicationComponent.getStartActivityComponent().build().injectStartActivity(this@StartActivity)
         } ?: {
             throw Exception("Application override class should be 'Multiapp'")
-        }
+        } // TODO("А нужно ли это? Мб просто создавать компонент старт активити здесь, а не брать его у аппликэйшн, если от него ничего не нужно?")
 
         setContentView(getView(this))
     }

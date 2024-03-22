@@ -8,6 +8,9 @@ import com.q2ve.personal_multiapp.feature_checklist.di.DaggerFeatureChecklistCom
 import com.q2ve.personal_multiapp.feature_checklist.internal.feed.items.AbstractChecklistItem
 import com.q2ve.personal_multiapp.feature_checklist.internal.feed.items.ItemSummary
 import com.q2ve.personal_multiapp.feature_checklist.internal.feed.items.ItemTask
+import com.q2ve.personal_multiapp.repository_tasks.api.RepositoryTasks
+import dagger.Reusable
+import javax.inject.Inject
 
 internal class ChecklistStartViewModel: ViewModel() {
 
@@ -21,26 +24,18 @@ internal class ChecklistStartViewModel: ViewModel() {
 
 	val currentState = MutableLiveData<ViewState>().apply { value = ViewState.EMPTY }
 
+	@Inject
+	@Reusable
+	lateinit var repository: RepositoryTasks
+
 	init {
 		DaggerFeatureChecklistComponent.create().inject(this)
 	}
 
-	fun requestFeed(another: Boolean = false) {
-		val items = if (!another) listOf(
+	fun requestFeed() {
+		val items = listOf(
 			ItemSummary(123456789),
-			ItemTask("Первая чек", true),
-			ItemTask("Вторая", false),
-			ItemTask("Третья", false),
-			ItemTask("Четвертая чек", true),
-			ItemTask("Пятая чек", true),
-			ItemSummary(987654321),
-		) else listOf(
-			ItemSummary(1113456789),
-			ItemTask("Первая чек", true),
-			ItemTask("АБЫР АБЫР", false),
-			ItemTask("Пятая чек", true),
-			ItemTask("Четвертая чек", true),
-			ItemTask("Третья", false),
+			ItemTask("Понюхать бебру", true),
 			ItemSummary(987654321),
 		)
 		currentState.apply {
@@ -48,11 +43,17 @@ internal class ChecklistStartViewModel: ViewModel() {
 		}
 	}
 
-	fun testDiffUtils() {
+	fun testDiffUtilsAndDb() {
 		Thread {
 			run {
 				Thread.sleep(2000)
-				Handler(Looper.getMainLooper()).post { requestFeed(true) }
+				Handler(Looper.getMainLooper()).post {
+					repository.getAll().observeForever { list ->
+						currentState.apply {
+							value = value?.copy(feedItems = list.map { ItemTask(it.description, it.isChecked) })
+						}
+					}
+				}
 			}
 		}.start()
 	}

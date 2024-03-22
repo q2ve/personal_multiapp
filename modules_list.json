@@ -5,10 +5,26 @@
 	},
 	{
 		"module": ":feature-checklist",
-		"path": "feature-checklist"
+		"path": "features/feature-checklist"
 	},
 	{
 		"module": ":ui-kit",
 		"path": "ui-kit"
+	},
+	{
+		"module": ":entities",
+		"path": "entities"
+	},
+	{
+		"module": ":database-helpers",
+		"path": "data/database/database-helpers"
+	},
+	{
+		"module": ":database-room",
+		"path": "data/database/database-room"
+	},
+	{
+		"module": ":repository-tasks",
+		"path": "data/repository/repository-tasks"
 	}
 ]

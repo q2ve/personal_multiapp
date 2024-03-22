@@ -2,7 +2,7 @@ import com.android.sdklib.AndroidVersion
 
 plugins {
 	alias(libs.plugins.application)
-	alias(libs.plugins.kotlin)
+	alias(libs.plugins.kotlinAndroid)
 	alias(libs.plugins.kapt)
 }
 
@@ -42,4 +42,5 @@ dependencies {
 	kapt(libs.dagger2compiler)
 	implementation(project(":feature-checklist"))
 	implementation(project(":ui-kit"))
+	implementation(project(":database-room"))
 }

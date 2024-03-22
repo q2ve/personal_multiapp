@@ -2,7 +2,7 @@ import com.android.sdklib.AndroidVersion
 
 plugins {
 	alias(libs.plugins.library)
-	alias(libs.plugins.kotlin)
+	alias(libs.plugins.kotlinAndroid)
 	alias(libs.plugins.kapt)
 }
 
@@ -45,5 +45,8 @@ dependencies {
 	implementation(libs.livedata)
 	implementation(libs.adapterdelegates)
 	implementation(libs.kotlinfaker)
+	implementation(libs.room)
 	implementation(project(":ui-kit"))
+	implementation(project(":entities"))
+	implementation(project(":repository-tasks"))
 }

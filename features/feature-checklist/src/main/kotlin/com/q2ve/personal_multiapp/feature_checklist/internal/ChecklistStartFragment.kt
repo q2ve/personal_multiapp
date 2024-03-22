@@ -35,7 +35,7 @@ internal class ChecklistStartFragment: Fragment() {
 		binding.feedRecycler.adapter = adapter
 		viewModel.currentState.observe(viewLifecycleOwner) { adapter.items = it.feedItems }
 		viewModel.requestFeed()
-		viewModel.testDiffUtils()
+		viewModel.testDiffUtilsAndDb()
 
 		return binding.root
 	}
